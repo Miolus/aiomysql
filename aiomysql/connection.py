@@ -45,7 +45,7 @@ from .log import logger
 DEFAULT_USER = getpass.getuser()
 
 
-def connect(host="localhost", user=None, password="",
+def connect(host="127.0.0.1", user=None, password="",
             db=None, port=3306, unix_socket=None,
             charset='', sql_mode=None,
             read_default_file=None, conv=decoders, use_unicode=None,
