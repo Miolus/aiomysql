@@ -50,6 +50,13 @@ class Pool(asyncio.AbstractServer):
         self._closed = False
         self._echo = echo
         self._recycle = pool_recycle
+        asyncio.get_event_loop().create_task(hangtest())
+        
+    async def hangtest(self):
+      while True:
+        if self.freesize == 0:
+          print('Pool is overloaded. Maybe connections are not returning.')
+        await asyncio.sleep(15)
 
     @property
     def echo(self):
